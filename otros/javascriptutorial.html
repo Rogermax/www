@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First JavaScript</h1>
+
+<p id="demo">
+JavaScript can change the content of an HTML element.
+</p>
+
+<script>
+function myFunction()
+{
+x=document.getElementById("demo");  // Find the element
+x.innerHTML="Hello JavaScript!";    // Change the content
+}
+</script>
+
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+<script>
+function changeImage()
+{
+element=document.getElementById('myimage')
+if (element.src.match("Normal"))
+  {
+  element.src="images/btnPressed.png";
+  }
+else
+  {
+  element.src="images/btnNormal.png";
+  }
+}
+</script>
+
+<p>
+	<img id="myimage" onclick="changeImage()"
+	src="images/btnNormal.png">
+</p>
+
+<p>Click the image to change its source</p>
+
+</body>
+</html>

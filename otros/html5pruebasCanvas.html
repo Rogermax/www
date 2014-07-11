@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Roger Games</title>
+  <script type='text/javascript' src='js/mi_juego/cParticulas.js'></script>
+  <!--<script type='text/javascript' src='js/facebook.js'></script>-->
+</head>
+<body id="body">
+
+  <?php include_once("analyticstracking.php") ?>
+
+<div id="inner" style="overflow:hidden;width: 2000px">
+  <div>
+    <canvas id="canvas" style="float:left" width = "600px" height = "600px" tabindex='1'></canvas>
+  </div>
+
+
+  <script>
+
+
+
+      var Game = {};
+
+      Game.numCuerpos = 0;
+      Game.numOjos = 8;
+      Game.numCejas = 16;
+      Game.imagenPintada = 0;
+      Game.allCargadas = false;
+      Game.imagesCargadas = 0;
+      Game.bichos = new Array();
+      Game.timeMove = 0;
+      Game.Carga = function()
+      {
+         Game.imagesCargadas++;
+         if (Game.imagesCargadas == 24) Game.allCargadas = true;
+      }
+
+      Game.init = function() {
+          Game.CargaImagen(0,'images/burbujita/STB_01__azul_cuerpo.webp');
+          Game.CargaImagen(0+10,'images/burbujita/STB_01__azul_ojos.webp');
+          Game.CargaImagen(0+20,'images/burbujita/STB_01__azul_cejas.webp');
+         for (var i = 1; i < 9; ++i)
+         {
+            Game.CargaImagen(i,'images/burbujita/move_01_'+(i-1).toString()+'__rosa_cuerpo.webp');
+            Game.CargaImagen(i+10,'images/burbujita/move_01_'+(i-1).toString()+'__rosa_ojos.webp');
+            Game.CargaImagen(i+20,'images/burbujita/move_01_'+(i-1).toString()+'__rosa_cejas.webp');
+         }
+
+          Game.CargaImagen(9,'images/burbujita/STB_01__rosa_cuerpo.webp');
+          Game.CargaImagen(9+10,'images/burbujita/STB_01__rosa_ojos.webp');
+          Game.CargaImagen(9+20,'images/burbujita/STB_01__rosa_cejas.webp');
+      }
+      Game.getIndice = function(valor)
+      {
+         var nuevo;
+         switch(valor) {
+            case 1:
+               nuevo = Game.numCuerpos;
+               Game.numCuerpos++;
+               break;
+            case 2:
+               nuevo = Game.numOjos;
+               Game.numOjos++;
+               break
+            case 3:
+               nuevo = Game.numCejas;
+               Game.numCejas++;
+               break;
+            default:
+
+         }
+         return nuevo;
+      }
+      Game.CargaImagen = function(tipo, str)
+      {
+         var img = new Image();
+         img.onload = function() {
+            Game.bichos[tipo]= img;
+            Game.Carga();
+         };
+         img.src= str;
+      }
+      Game.init();
+      Game.fps = 60;
+      Game.stopped = false;
+      Game.draw = 
+      function() 
+      {  
+         //console.log("pintamos!");
+         var c=document.getElementById("canvas");
+         var ctx=c.getContext("2d");
+         ctx.save();
+         ctx.setTransform(1,0,0,1,0,0);
+         ctx.clearRect(0, 0, 600, 600);
+
+         ctx.restore();
+         
+         this.imageCesped = new Image();
+         this.imageCesped.src = 'images/burbujita/cesped.png';
+         
+         
+        ctx.beginPath();
+            var pattern = ctx.createPattern(this.imageCesped, 'repeat');
+            ctx.rect(0, 0, 600, 600);
+            ctx.fillStyle = pattern;
+            ctx.fill();
+        ctx.closePath();
+
+
+         ctx.save();
+
+         if (Game.allCargadas)
+         {
+            //console.log("imagen por pintar: "+Game.imagenPintada);
+            //console.log("vector: "+Game.bichos);
+            //console.log("image: "+Game.bichos[Game.imagenPintada]);
+            if (Game.bichos[Game.imagenPintada%10] != undefined)
+            {
+              if (Game.imagenPintada%10 == 3 || Game.imagenPintada%10 == 5)
+              {
+                ctx.drawImage(Game.bichos[Game.imagenPintada%10], Game.imagenPintada%20*20, 60);
+              }
+              else if (Game.imagenPintada%10 == 4)
+              {
+                ctx.drawImage(Game.bichos[Game.imagenPintada%10], Game.imagenPintada%20*20, 20);
+              }
+              else
+              {
+                ctx.drawImage(Game.bichos[Game.imagenPintada%10], Game.imagenPintada%20*20, 80);
+              }
+            }
+            if (Game.bichos[10+Game.imagenPintada%10] != undefined)
+            {
+              if (Game.imagenPintada%10 == 3 || Game.imagenPintada%10 == 5)
+              {
+               ctx.drawImage(Game.bichos[10+Game.imagenPintada%10], Game.imagenPintada%20*20, 60);
+              }
+              else if (Game.imagenPintada%10 == 4)
+              {
+               ctx.drawImage(Game.bichos[10+Game.imagenPintada%10], Game.imagenPintada%20*20, 20);
+              }
+              else
+              {
+               ctx.drawImage(Game.bichos[10+Game.imagenPintada%10], Game.imagenPintada%20*20, 80);
+              }
+            }
+            if (Game.bichos[20+Game.imagenPintada%10] != undefined)
+            {
+              if (Game.imagenPintada%10 == 3 || Game.imagenPintada%10 == 5)
+              {
+               ctx.drawImage(Game.bichos[20+Game.imagenPintada%10], Game.imagenPintada%20*20, 60);
+              }
+              else if (Game.imagenPintada%10 == 4)
+              {
+               ctx.drawImage(Game.bichos[20+Game.imagenPintada%10], Game.imagenPintada%20*20, 20);
+              }
+              else
+              {
+               ctx.drawImage(Game.bichos[20+Game.imagenPintada%10], Game.imagenPintada%20*20, 80);
+              }
+            }
+            ctx.translate(600, 0);
+            ctx.scale(-1, 1);
+            if (Game.bichos[Game.imagenPintada%10] != undefined)
+               ctx.drawImage(Game.bichos[Game.imagenPintada%10], Game.imagenPintada%20*20, 336);
+            if (Game.bichos[10+Game.imagenPintada%10] != undefined)
+               ctx.drawImage(Game.bichos[10+Game.imagenPintada%10], Game.imagenPintada%20*20, 336);
+            if (Game.bichos[20+Game.imagenPintada%10] != undefined)
+               ctx.drawImage(Game.bichos[20+Game.imagenPintada%10], Game.imagenPintada%20*20, 336);
+         }
+
+         ctx.restore();
+      };
+
+      Game.update = function() 
+      { 
+         if (Game.timeMove == 4) {
+            Game.imagenPintada = (Game.imagenPintada+1)%40;
+            Game.timeMove = 0;
+         }
+         else 
+         {
+            Game.timeMove++;
+         }
+      };
+
+
+      Game.run = (function() 
+      {
+        var loops = 0, skipTicks = 1000 / Game.fps,
+            maxFrameSkip = 10,
+            nextGameTick = (new Date).getTime();
+        
+        return function() {
+          loops = 0;
+          
+          while ((new Date).getTime() > nextGameTick && loops < maxFrameSkip) {
+            Game.update();
+            nextGameTick += skipTicks;
+            loops++;
+          }
+          
+          if (loops) Game.draw();
+        };
+      })();
+
+
+      // Start the game loop
+      //Game._intervalId = setInterval(Game.run, 0);
+
+      (function() {
+        var onEachFrame;
+        if (window.webkitRequestAnimationFrame) {
+          onEachFrame = function(cb) {
+            var _cb = function() { cb(); webkitRequestAnimationFrame(_cb); }
+            _cb();
+          };
+        } else if (window.mozRequestAnimationFrame) {
+          onEachFrame = function(cb) {
+            var _cb = function() { cb(); mozRequestAnimationFrame(_cb); }
+            _cb();
+          };
+        } else {
+          onEachFrame = function(cb) {
+            setInterval(cb, 1000 / 60);
+          }
+        }
+        
+        window.onEachFrame = onEachFrame;
+      })();
+
+      window.onEachFrame(Game.run);
+
+
+
+
+
+
+      // To stop the game, use the following:
+      //clearInterval(Game._intervalId);
+     
+  </script>
+
+  <div>
+    <canvas id="canvas2" style="float:left" width = "600px" height = "600px" tabindex='2'></canvas>
+  </div>
+
+  <script>
+/*
+      var c=document.getElementById("canvas2");
+      var ctx=c.getContext("2d");
+      var img=document.getElementById("scream");
+
+      var imagesCargadas = 0;
+      bicho1cuerpo = null;
+      bicho1ojos = null;
+      bicho1cejas = null;
+      bicho2cuerpo = null;
+      bicho2ojos = null;
+      bicho2cejas = null;
+      bicho3cuerpo = null;
+      bicho3ojos = null;
+      bicho3cejas = null;
+
+      var imageObj1 = new Image();
+      imageObj1.onload = function() {
+        bicho1cuerpo = imageObj1;
+        Carga();
+      };
+      imageObj1.src = 'images/burbujita/move_00__amarillo_cuerpo.webp';
+
+      var imageObj2 = new Image();
+      imageObj2.onload = function() {
+         bicho1ojos = imageObj2;
+         Carga();
+      };
+      imageObj2.src = 'images/burbujita/move_00__amarillo_ojos.webp';
+
+
+      var imageObj3 = new Image();
+      imageObj3.onload = function() {
+        bicho1cejas = imageObj3;
+        Carga();
+      };
+      imageObj3.src = 'images/burbujita/move_00__amarillo_cejas.webp';
+
+      var imageObj12 = new Image();
+      imageObj12.onload = function() {
+        bicho2cuerpo = imageObj12;
+        imagesCargadas++;
+      };
+      imageObj12.src = 'images/burbujita/STB_01__verde_cuerpo.webp';
+
+      var imageObj22 = new Image();
+      imageObj22.onload = function() {
+         bicho2ojos = imageObj22;
+         Carga();
+      };
+      imageObj22.src = 'images/burbujita/STB_01__verde_ojos.webp';
+
+
+      var imageObj32 = new Image();
+      imageObj32.onload = function() {
+        bicho2cejas = imageObj32;
+         Carga();
+      };
+      imageObj32.src = 'images/burbujita/STB_01__verde_cejas.webp';
+
+
+      var imageObj13 = new Image();
+      imageObj13.onload = function() {
+        bicho3cuerpo = imageObj13;
+         Carga();
+      };
+      imageObj13.src = 'images/burbujita/STB_01__azul_cuerpo.webp';
+
+      var imageObj23 = new Image();
+      imageObj23.onload = function() {
+         bicho3ojos = imageObj23;
+         Carga();
+      };
+      imageObj23.src = 'images/burbujita/STB_01__azul_ojos.webp';
+
+
+      var imageObj33 = new Image();
+      imageObj33.onload = function() {
+        bicho3cejas = imageObj33;
+        Carga();
+      };
+      imageObj33.src = 'images/burbujita/STB_01__azul_cejas.webp';
+
+      var Carga = function()
+      {
+
+         imagesCargadas++;
+         if (imagesCargadas == 9) pinta();
+      }
+
+      var pinta = function() {
+         ctx.drawImage(bicho1cuerpo, 0, 0,100,100);
+         ctx.drawImage(bicho1ojos, 0, 0,100,100);
+         ctx.drawImage(bicho1cejas, 0, 0,100,100);
+         ctx.drawImage(bicho2cuerpo, 256, 0);
+         ctx.drawImage(bicho2ojos, 256, 0);
+         ctx.drawImage(bicho2cejas, 256, 0);
+         ctx.drawImage(bicho3cuerpo,128,128,128,128, 0, 256,500,500);
+         ctx.drawImage(bicho3ojos, 128,128,128,128,0, 256,500,500);
+         ctx.drawImage(bicho3cejas, 128,128,128,128,0, 256,500,500);
+      }
+*/
+  </script>
+</div>
+  
+
+</html>
+
+
