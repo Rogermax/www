@@ -1,6 +1,0 @@
-<pre>
-<?php
-class cAnimal {
-
-}
-?>

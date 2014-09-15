@@ -1,7 +1,0 @@
-body { background: #000; }
-#page-wrap { width: 900px; position: relative; word-wrap:break-word; }
-/*#page-wrap:after { content: "Wide Layout"; }*/
-#main-content { float: left; width: 420px; height: 300px; margin-left: 198px; overflow: auto;}
-#secondary-one { float: left; width: 170px; height: 300px; position: absolute; overflow: auto;}
-#secondary-two { float: right; width: 173px; height: 300px; overflow: auto;}
-#footer { width: 858px; margin-top: 352px; overflow: auto;}

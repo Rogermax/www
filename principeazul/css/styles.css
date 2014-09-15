@@ -1,0 +1,172 @@
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	text-align: center;
+	background-color: #5B8F9A;
+}
+
+
+div {
+	display: block;
+}
+
+.clear { clear: both;}
+
+div#contenedor {
+	width: 1024px;
+	min-height: 100%;
+	position: relative;
+	margin: 0px auto;
+	background-image: url('../img/background.png');
+	background-size: 1024px 1436.8768px;
+}
+
+header {
+	margin: 0px;
+}
+
+div#titulo {
+	width: 1024px;
+	height: 158.1056px;
+    margin: 0 auto;
+}
+
+nav {
+	margin: 0px;
+}
+
+
+div#principal {
+	margin: 0px;
+}
+
+div#canvas-libro {
+	margin: 0px;
+	min-height: 400px;
+}
+
+div#ofrecemos {
+	margin: 0px;
+	padding-bottom:80px;
+}
+
+footer {
+	position:absolute;
+	bottom:0;
+	padding-top: 20px;
+	height:60px;
+	margin: 0px;
+	width: 100%;
+}
+
+div#footer {
+	width: 800px;
+	height: 40px;
+    margin: 0 auto;
+    border: 2px solid blue;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.imagesSource {
+	display: none;
+}
+
+.canvasHolder {
+    display: block;
+	top:-160px;
+	position: absolute;
+}
+
+.canvasHolder canvas {
+	/*border: 1px solid red;*/
+}
+
+#mouse {
+	background:green;
+	opacity:0.65;
+	position:absolute;
+	color: White;
+	text-align: center;
+	font-weight: bold;
+	z-index: 100;
+}
+
+
+#menu{
+    width:1024px;
+    height: 114.688px;
+	background-color: #5B8F9A;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+}
+
+#menu ul{
+    font-family: 'Exo 2', sans-serif;
+    display:table-row;
+
+}
+#menu ul li{
+    font-family: 'Exo 2', sans-serif;
+    list-style:none;
+    display:table-cell;
+    font-size:18px;
+    vertical-align: middle;
+}
+#menu ul li a{
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none;
+    color:blue;
+}
+
+#menu ul li span {
+    vertical-align: middle;
+    margin-left: 0px;
+}
+#menu ul li img{
+    vertical-align: middle;
+}
+#menu ul li a:hover{
+    color: #ababab;
+}
+#menu ul li a.current{
+    text-decoration:underline;
+}
+
+#menu ul li:first-child {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu ul li:last-child {
+    text-align: right;
+    padding-right: 10px;
+}
+
+#cares{
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    margin: 0px auto;
+    display: table;
+}
+
+#cares div {
+	padding: 50px;
+    vertical-align: middle;
+    display:table-cell;
+}
