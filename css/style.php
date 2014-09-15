@@ -4,7 +4,7 @@ header('content-type:text/css');
 $colorPrincipal = '#369';
 $colorSecundario = '#557E29';
 $numColumnas = 3;
-$numFilas = 2;
+$numFilas = 3;
 $margenLateral = 20;
 $margenInterno = 10;
 $ladoCuadrado = 156;
