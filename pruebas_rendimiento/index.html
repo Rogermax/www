@@ -1,0 +1,94 @@
+<html>
+
+  <head>
+    <title>Roger Games</title>
+    <script type="text/javascript" src="js/cGame.js"></script>
+    <script> //Calcula tamaño de la ventana.
+      sizeWH = function(){
+        var w = 0;var h = 0;
+        //IE
+        if(!window.innerWidth)
+        {
+          if(!(document.documentElement.clientWidth == 0)){
+            //strict mode
+            w = document.documentElement.clientWidth;
+            h = document.documentElement.clientHeight;
+          } 
+          else
+          {
+            //quirks mode
+            w = document.body.clientWidth;
+            h = document.body.clientHeight;
+          }
+        }
+        else
+        {
+          //w3c
+          w = window.innerWidth;
+          h = window.innerHeight;
+        }
+        return {width:w,height:h};
+      }
+    </script>
+    <!-- STYLE: pone los canvas sin margen -->
+    <style> 
+      body
+      {
+        background:white;
+        padding:0;
+        margin:0;
+      }
+      canvas {
+        position:absolute;
+        display:block;
+        padding:0;
+        margin:0;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+
+    <canvas id="canvas" tabindex="1"></canvas>
+
+    <script>
+
+      Game = new cGame(sizeWH()['width'],sizeWH()['height']);
+      Game.AsignaTecladoMouse();
+      Game.CargaImagenes();
+
+      (function() //asigna onEachFrame per a diferents exploradors.
+      {
+        var onEachFrame;
+        if (window.requestAnimationFrame)
+        {
+          onEachFrame = function(cb)
+          {
+            var _cb = function() { cb(); requestAnimationFrame(_cb); }
+            _cb();
+          };
+        }
+        else if (window.mozRequestAnimationFrame)
+        {
+          onEachFrame = function(cb)
+          {
+            var _cb = function() { cb(); mozRequestAnimationFrame(_cb); }
+            _cb();
+          };
+        }
+        else
+        {
+          onEachFrame = function(cb)
+          {
+            setInterval(cb, 1000 / 60);
+          }
+        }
+
+        window.onEachFrame = onEachFrame;
+      })();
+
+      window.onEachFrame(Game.run);
+    </script>
+  </body>
+
+</html>
