@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" media="(max-width: 640px)" href="css/max-640px.css">
+    <link rel="stylesheet" media="(min-width: 640px)" href="css/min-640px.css">
+    <link rel="stylesheet" media="(orientation: portrait)" href="css/portrait.css">
+    <link rel="stylesheet" media="(orientation: landscape)" href="css/landscape.css"> 
+
+    <style>
+      @media (min-width: 500px) and (max-width: 600px) {
+        h1 {
+          color: fuchsia;
+        }
+        .desc:after {
+          content:" In fact, it's between 500px and 600px wide.";
+        }
+      }
+    </style>
+
+    <title>No title</title>
+  </head>
+  <body>
+    <h1>My first page</h1>
+    <p class="desc"></p>
+    <p class="desc2"></p>
+  </body>
+</html>
+

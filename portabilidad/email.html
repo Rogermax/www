@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--This is a great DOCTYPE to test with because it is used by Gmail and Outlook.com. It is very important to test with and without 
+a DOCTYPE because many clients strip it entirely - this affects paragraph margins & padding, centering, and box model padding.
+For more information on how the DOCTYPE affects your email, check out the following resources:
+Email on Acid - http://www.emailonacid.com/blog/details/C18/doctype_-_the_black_sheep_of_html_email_design
+Campaign Monitor - http://www.campaignmonitor.com/blog/post/3317/correct-doctype-to-use-in-html-email/
+ 
+***** WHAT IS A BOILERPLATE?  *************************
+This boilerplate is like a foundation for good emails. It is not a template, and it doesn't come with places for you to add youir content.
+Instead, the boilerplate includes basic CSS and HTML, along with tips in the form of comments, to help kickstart your coding efforts.
+ 
+***** BOILERPLATE  USE  *************************
+This boilerplate is merely a guideline for writing HTML code that will render correctly across each of the most popular email clients.  
+ 
+Please download the min. version of this code and as a general rule, avoid using comments in your final email campaign or else 
+you may get blocked by SPAM filters.  Also, including a single quote in your CSS comments will cause your email to appear blank 
+in Entourage 08.
+ 
+Some of the embedded CSS used in this boilerplate can be adjusted based on your design but others need to be overwritten inline.  
+You will find those instructions below.   
+ 
+The CSS style block has been placed just above the closing body tag for Yahoo in IE7 & 8. This fix actually requires a DOCTYPE.  
+http://www.emailonacid.com/blog/details/C13/yahoo_mail_does_not_support_the_style_block_in_internet_explorer_7_8  -->
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+<head>
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--This content type tells a web browser how to interpret your special characters. However:
+    EVERY EMAIL CLIENT WILL IGNORE THIS META TAG. Instead the content-type will be set in the header of your email.  The 
+    header is created based on the server configuration which is controlled by your email service provider.  Here is more info: 
+    http://www.emailonacid.com/blog/details/C18/the_importance_of_content-type_character_encoding_in_html_emails
+ 
+    Solution: to avoid jumbled characters in your email, always use HTML entities.  Here's a free tool for quickly converting all 
+    of your characters: http://www.emailonacid.com/character_converter/ 
+     
+    When testing, it's a good idea to try both:
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    and
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8895-1" />
+    This will help you catch jumbled characters so that you don't forget to convert them to HTML entities.  -->
+    
+    <title>Your Message Subject or Title</title>
+     
+<style type="text/css">
+     
+                /****** EMAIL CLIENT BUG FIXES - BEST NOT TO CHANGE THESE ********/
+                 
+                        .ExternalClass {width:100%;} /* Forces Outlook.com to display emails at full width */
+                         
+                        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+                            line-height: 100%;
+                            }  /* Forces Outlook.com to display normal line spacing, here is more on that: 
+                            http://www.emailonacid.com/forum/viewthread/43/ 
+                            */
+                         
+                        body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;} /* Prevents Webkit and Windows Mobile 
+                        platforms from changing default font sizes. */
+                         
+                        body {margin:0; padding:0;} /* Resets all body margins and padding to 0 for good measure */
+                         
+                        table td {border-collapse:collapse;}    
+                        /* This resolves the Outlook 07, 10, and Gmail td padding issue.  Here's more info:
+                                http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells 
+                                http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07 
+                                */
+ 
+                /****** END BUG FIXES ********/
+ 
+                /****** RESETTING DEFAULTS, IT IS BEST TO OVERWRITE THESE STYLES INLINE ********/
+                 
+                        p {margin:0; padding:0; margin-bottom:0;}
+                                /* This sets a clean slate for all clients EXCEPT Gmail. 
+                               From there it forces you to do all of your spacing inline during the development process.  
+                               Be sure to stick to margins because paragraph padding is not supported by Outlook 2007/2010
+                               Remember: Outlook.com does not support "margin" nor the "margin-top" properties.  
+                               Stick to "margin-bottom", "margin-left", "margin-right" in order to control spacing
+                               It also doesn't hurt to set the inline top-margin to "0" for consistency in Gmail for every instance of a 
+                               paragraph tag (see our paragraph example within the body of this boilerplate)
+                     
+                               Another option:  Use double BRs instead of paragraphs */            
+                         
+                       h1, h2, h3, h4, h5, h6 {
+                           color: black; 
+                           line-height: 100%; 
+                           }  /* This CSS will overwrite Outlook.com/Outlook.com's default CSS and make your headings appear consistent with Gmail.  
+                           From there, you can overwrite your styles inline if needed.  */
+                
+                       a, a:link {
+                           color:#2A5DB0;
+                           text-decoration: underline;
+                           }  /* This is the embedded CSS link color for Gmail.  This will overwrite Outlook.com and Yahoo Beta's 
+                           embedded link colors and make it consistent with Gmail.  You must overwrite this color inline. */          
+                 
+               /****** END RESETTING DEFAULTS ********/
+                
+               /****** EDITABLE STYLES        ********/
+ 
+                    body, #body_style {
+                        background:#000;
+                        min-height:1000px;
+                        color:#fff;
+                        font-family:Arial, Helvetica, sans-serif;
+                        font-size:12px;
+                        } /*The "body" is defined here for Yahoo Beta because it does not support your body tag. Instead, it will create a 
+                        wrapper div around your email and that div will inherit your embedded body styles.
+                         
+                        The "#body_style" is defined for AOL because it does not support your embedded body definition nor your body 
+                        tag, we will use this class in our wrapper div.
+                         
+                        The "min-height" attribute is used for AOL so that your background does not get cut off if your email is short.
+                        We are using universal styles for Outlook 2007, including them in the wrapper will not affect nested tables*/
+                         
+                      span.yshortcuts { color:#000; background-color:none; border:none;}
+                      span.yshortcuts:hover,
+                      span.yshortcuts:active,
+                      span.yshortcuts:focus {color:#000; background-color:none; border:none;}
+                      /*When Yahoo! Beta came out, we thought we could put those days behind us but we might have celebrated a little 
+                      too soon. Here's more: http://www.emailonacid.com/blog/details/C13/yahoo_shortcuts_are_baaaaaaaack */
+                     
+                                             
+                      /*Optional:*/
+                      a:visited { color: #3c96e2; text-decoration: none} 
+                      a:focus   { color: #3c96e2; text-decoration: underline}  
+                      a:hover   { color: #3c96e2; text-decoration: underline}  
+                        /* There is no way to set these inline so you have the option of adding pseudo class definitions here. They won't 
+                        work for Gmail nor older versions of Lotus Notes but it's a nice addition for all other clients. */
+                         
+                        /* Optimizing for mobile devices - (optional) */
+                        @media only screen and (max-device-width: 480px) {
+                               /* Here you can include rules for the Android and iPhone native email clients. 
+                               Device viewport dimensions are as follows:
+                                
+                               iPhone:  320px X 480px - portrait, 480px X 320px - landscape
+                             
+                               Android:   350px X 480px - portrait, 480 X 350 - landscape
+                              (These are average dimensions, the Android OS runs on several different devices) */
+                            
+                               body[yahoo] #container1 {display:block !important}  /* example style */
+                               body[yahoo] p {font-size: 10px} /* example style */
+                               /* You must use attribute selectors in your media queries to prevent Yahoo from rendering these styles.  
+                               We added a yahoo attribute in the body tag to complete this fix. 
+                               http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/ 
+                               http://www.emailonacid.com/blog/details/C13/stop_yahoo_mail_from_rendering_your_media_queries 
+                                
+                                
+                               To learn more about media queries for mobile email, check out the following:
+                               http://www.emailonacid.com/blog/details/C13/designing_html_emails_for_mobile_devices
+                               http://www.emailonacid.com/blog/details/C13/media_queries_in_html_emails 
+                               http://www.emailonacid.com/blog/details/C13/5_reasons_why_the_mobile_version_of_your_email_might_not_be_displaying
+                               http://www.emailonacid.com/blog/details/C13/emailology_media_queries_demystified_min-width_and_max-width
+                               http://www.emailonacid.com/blog/details/C13/emailology_a_free_responsive_email_template_using_media_queries_-_part_i
+ 
+                               */
+                            
+                        }       
+                         
+                        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)  {
+                           /* Here you can include rules for the iPad native email client. 
+                            
+                           Device viewport dimensions in pixels:
+                                703 x 1024 - portrait 
+                                1024 x 703 - landscape
+                            */
+                             
+                               body[yahoo] #container1 {display:block !important} /*example style*/
+                               body[yahoo] p {font-size: 12px} /*example style*/                       
+                             
+                        }              
+                
+               /*** END EDITABLE STYLES ***/                      
+ 
+                /*** EMBEDDED CSS NOTES ***
+                 
+                        1.) Be aware that Gmail will not read any of your embedded CSS
+                         
+                        2.) Although we have seen the !important priority used in other examples, it is not necessary.  
+                        If you use "!important" you can no longer overwrite your styles inline which is required for Gmail.
+                 
+                        3.) The Android does not support "class" declarations outside of the media query.  Here is more info on that: 
+                        http://www.emailonacid.com/blog/the_android_mail_app_and_css_class_declarations/ 
+                         
+                        4.) You might want to consider duplicating your embedded CSS after the closing body tag for Yahoo! Mail in 
+                        IE7 & 8.
+                         
+                *** END EMBEDDED CSS NOTES ***/
+ 
+       </style>
+ 
+ 
+</head>
+<body style="background:#000; min-height:1000px; color:#fff;font-family:Arial, Helvetica, sans-serif; font-size:12px"
+alink="#FF0000" link="#FF0000" bgcolor="#000000" text="#FFFFFF" yahoo="fix"> 
+<!-- You may adjust each of the values above for your email as needed. 
+ 
+We've included the style attribute for Gmail because it does not support embedded CSS and it will convert this body tag to 
+a div. Since it gets converted to a div, the other body attributes like bgcolor are ignored.  
+ 
+We included body attributes (alink, link, bgcolor and text) for Lotus Notes 6.5 and 7, as these clients do not offer much 
+support for embedded nor inline CSS. 
+ 
+The "min-height" attribute is set for Gmail and AOL since they will be converting this body tag to a div and we want our 
+background color to reach the bottom of the page. 
+ 
+The "yahoo" attribute is added if you are using media queries for mobile devices.  For an explanation, check out the media 
+queries example in the style block below. -->
+     
+    <!--PAGE WRAPPER-->
+    <div id="body_style" style="padding:15px"> 
+    <!--This div is working as a wrapper and the body_style is picking up our CSS properties for AOL. The padding has been 
+    included for Gmail, you can adjust this to your liking.
+     
+    If your email exceeds 23 inches in height, you might end up with unwanted horizontal spacing halfway down your email in 
+    Outlook 2007 and 2010:
+    The reason: http://www.emailonacid.com/blog/details/C13/horizontal_spacing_issues_in_outlook_2007_and_2010
+    The fix: Just change this wrapper from a div to a span and add style="display:block" - don't forget to change the closing tag 
+    as well.  From there, stack your tables within your email so that no table exceeds 23 inches.  
+    Here is another example: http://www.emailonacid.com/blog/details/C13/background_colors_in_html_emails
+    -->
+         
+        <!-- PAGE LAYOUT -->
+        <table cellpadding="0" cellspacing="0" border="0" bgcolor="#000000" width="600" align="center">
+            <tr>
+                <td width="200">Content</td>
+                <td width="200">Content</td>
+                <td width="200">Content</td>
+            </tr>
+        </table> 
+        <!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most 
+        cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. 
+        The bgcolor and width attributes are for the Android Gmail application.  Gmail converts your body to a div, even on mobile apps. 
+        Since there is no width set in your body, the Android sets the width of your converted body tag to that of the device viewport. 
+        To make a long story short, your background color will get cut off as the viewer scrolls horizontally unless you add it to each 
+        of your tables as well.
+         
+        In this example, we are using the align="center" attribute to center the final email, if you want it left aligned, just remove
+        that.  Using align attribute will ensure consistent results in all clients even after your DOCTYPE is stripped.
+        -->
+         
+        <!-- PARAGRAPHS -->
+        <p style="margin-top:0"></p>
+        <!--As stated above, paragraph tags are optional. Do not allow yourself to change the margin-top because it is not supported 
+        in Outlook.com.  Paragraph padding is hit or miss in Outlook 2007/2010/2013.  You will have to stick to margin-left, margin-right, and 
+        margin-bottom and avoid the generic "margin" property -->
+         
+        <!-- TEXT LINKS  -->
+        <a href="http://www.google.com" style="color:#F00" target ="_blank" title="Google">Ir a google</a>
+        <!-- Here, we've used inline css to overwrite Gmail's default link color. -->
+         
+        <!-- EMBEDDING FILES -->
+        <a href="index.html" style="color:#F00" target ="_blank" title="Index">External File</a>
+        <!--If you have a client who asks you to include an attachment like a pdf, always recommend linking to an external file.  
+        Attachments will often cause an email to be blocked by SPAM filters.-->
+         
+        <!--INSERTING IMAGES-->
+        <img src="img/prueba.jpg" alt="Info Here" title="Info Here" width="308" height="58"
+        style="display:block"  border="0"/>
+        <!-- Gmail, Yahoo and Outlook.com add in an extra space below images when using non IE browsers.  This is especially noticeable 
+        when stacking images on top of each other.  
+        A common fix is to add style="display: block".  Here are some more possible work-arounds: 
+        http://www.emailonacid.com/blog/details/C18/12_fixes_for_the_image_spacing_in_html_emails
+        It's best to use the "align" attribute vs. a CSS float if you are placing them inline with text - this is for Lotus Notes 6.5 and 7.
+        Image widths and heights need to be explicitly set and actual dimensions must be correct for Outlook 2007 and 2010.  
+        The alt and title tags are equally important because a majority of email clients block images by default and instead display 
+        either the title or alt text in the images' space.
+        Use border="0" to avoid unwanted outlines around your images in various clients - especially when wrapping a link around
+        the image.
+        Last but not least, you must always use absolute references to images in HTML emails: 
+        http://www.emailonacid.com/blog/details/C18/css-html-email 
+        -->
+         
+        <!--ORDERED AND UNORDERED LISTS-->
+        <p>Ordered and unordered list</p>
+        <table cellpadding="2" cellspacing="2" border="0"> 
+            <tr>
+                <td valign="top">•</td>
+                <td>Test</td>
+            </tr>
+            <tr>
+                <td valign="top">1.)</td>
+                <td>Test</td>
+            </tr>
+        </table>  
+        <!--Outlook 2007/2010 converts your list items into paragraphs and spans (particularly if you use inline styles) so although 
+        using tables is rather frustrating, it might save you time and hassle when testing lists. -->
+ 
+        <!-- BACKGROUND IMAGES -->
+        <table cellpadding="0" cellspacing="0" border="0"> 
+            <tr>
+                <td valign="top" background="img/prueba.jpg" bgcolor="#006600"> </td>
+            </tr>
+        </table>  
+        <!--The "background" attribute within the TABLE, TH, or TD tag is the safest way to use background images.  This is supported 
+        by all clients except Outlook 07, 2010, Lotus Notes 6.5, and 7.  For those, we added a "bgcolor" because Notes 6.5 and 7 have 
+        limited support for inline CSS.
+        If you want to display a background image in the body of your email, create a wrapper table, width 100%.  Again, this is 
+        because Gmail does not support embedded css and if it finds a background image in your inline CSS, it will ignore the entire 
+        style declaration. To get background images working in Outlook 07 and 2010, check out this article courtesy of Campaign 
+        Monitor and Brian Thies:
+        http://www.campaignmonitor.com/blog/post/3363/updated-applying-a-background-image-to-html-email/ -->
+ 
+        <!-- EMBEDDING VIDEO -->
+        <a href="www.google.com" target="_blank">
+            <img src="img/prueba.jpg" alt="Online Demo" title="Online Demo" width="308"
+            height="106" style="display:block;" border="0" />
+        </a>
+        <!-- HTML5 video is now possible in email, using a workaround we devised. Check that out here:
+        ADDRESS HERE
+        Or, you can use an image with play button and link it to the actual video. This is the usual method for including video.
+        For extra credit points, try embedding a linked GIF instead of a static image. -->
+ 
+        <!--STYLING A CALL TO ACTION BUTTON-->
+        <table width="150" cellspacing="3" cellpadding="0" border="0">
+            <tr>
+              <td width="150" height="35" align="center" background="img/prueba.jpg" style="background-repeat:repeat-x; background-position:top left; background-color:#3c96e2; 
+              border:1px solid #666666; color:#FFFFFF; font-weight:bold; white-space:nowrap; height:35px;">
+              <a href="www.google.com" target="_blank" style="color:#FFFFFF; 
+              cursor:pointer; font-size:13px; text-align:center; text-decoration:none; vertical-align:baseline; font-weight:bold;"> 
+              <span style="padding:10px 10px; color:#FFF">Online Demo ››</span></a></td>
+            </tr>
+        </table>
+        <!--This button looks good with and without images, here's more on that:
+        http://www.emailonacid.com/blog/details/C13/email_design_for_mobile_and_blocked_images-->
+ 
+    </div> <!--end wrapper-->
+ 
+<!--As mentioned above, you might want to consider duplicating your embedded CSS after the closing body tag for Yahoo! 
+Mail in IE7 & 8
+ 
+Never include anything after your ending html tag because Comcast won't render it.
+ 
+ONE FINAL NOTE: Your email will be opened across a variety of different platforms and web browsers.  Save yourself some 
+time by testing in a web browser first. Be sure to preview your email in the most popular email clients using Email on Acid! -->
+ 
+</body>
+</html>
