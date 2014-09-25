@@ -2,6 +2,16 @@ html {
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 18px;
+	color: #4C7E8B;
+}
+
+p {
+	padding: 40px;
+	text-align: justify;
+    text-justify: inter-word;
+    font-weight: 500;
 }
 
 
@@ -25,8 +35,18 @@ div#contenedor {
 	min-height: 100%;
 	position: relative;
 	margin: 0px auto;
-	background-image: url('../img/background.png');
-	background-size: 1024px 1436.8768px;
+}
+
+#contenedor-canvas {
+	width:775px;
+	height:397px; 
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
+	border-radius: 40px;
+    -moz-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    -webkit-border-radius: 40px;
 }
 
 header {
@@ -45,7 +65,14 @@ nav {
 
 
 div#principal {
+	padding-top: 60px;
 	margin: 0px;
+	border-radius: 40px;
+    -moz-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    -webkit-border-radius: 40px;
+	background-image: url('../img/background3.png');
+	background-size: 1024px 1436.8768px;
 }
 
 div#canvas-libro {
@@ -71,8 +98,6 @@ div#footer {
 	width: 800px;
 	height: 40px;
     margin: 0 auto;
-    border: 2px solid blue;
-    border-radius: 5px;
     text-align: center;
     padding: 5px;
 }
@@ -109,7 +134,6 @@ li {
 #menu{
     width:1024px;
     height: 114.688px;
-	background-color: #5B8F9A;
     font-family: 'Exo 2', sans-serif;
     text-align: center;
     margin: 0 auto;
@@ -161,12 +185,13 @@ li {
 #cares{
     font-family: 'Exo 2', sans-serif;
     text-align: center;
-    margin: 0px auto;
+    margin: 0 auto;
+    width: 1024px;
     display: table;
 }
 
 #cares div {
-	padding: 50px;
-    vertical-align: middle;
+	width: 512px;
+	text-align: center;
     display:table-cell;
 }

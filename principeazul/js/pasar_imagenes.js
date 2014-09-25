@@ -13,12 +13,14 @@ function canvas_libro(){
     this.imagesOK=0;
     this.imgs=[];
     this.keys=[];
-    this.imageURLs.push("img/bmw-z8.jpg");
-    this.imageURLs.push("img/celica.jpg");
-    this.imageURLs.push("img/koenigsegg.jpg");
-    this.imageURLs.push("img/manila 2.jpg");
-    this.imageURLs.push("img/manila.jpg");
+    this.imageURLs.push("img/1.jpg");
+    this.imageURLs.push("img/2.jpg");
+    this.imageURLs.push("img/3.jpg");
+    this.imageURLs.push("img/4.jpg");
+    this.imageURLs.push("img/5.jpg");
+    this.imageURLs.push("img/6.jpg");
     this.listo = false;
+    this.lastTime = (new Date).getTime();
 
     this.loadAllImages = function(){
         for (var i = 0; i < this.imageURLs.length; i++) {
@@ -150,32 +152,34 @@ function canvas_libro(){
             // get the xy where the image will be drawn
         if (this.listo) {
             var img=this.imgs[this.imageIndex];
-            var imgX=(this.canvas.width/2-img.width/2)*this.animPctComplete;
-            var imgY=(this.canvas.height/2)-img.height/2;
+            var tiempo = ((new Date).getTime() - this.lastTime);
+            var imgX=0;
+            if (tiempo > 500 && tiempo < 4500)
+                imgX=Math.abs(this.canvas.width-img.width)*(tiempo-500)/4000;
+            else if (tiempo >= 4500)
+                imgX=Math.abs(this.canvas.width-img.width);
 
             // set the current opacity
-            this.ctx.globalAlpha=this.animPctComplete;
+            if (tiempo < 1500) this.ctx.globalAlpha=tiempo/1500;
+            else if (tiempo < 3500) this.ctx.globalAlpha = 1;
+            else this.ctx.globalAlpha=1-(tiempo-3500)/1500;
 
             // draw the image
             this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-            this.ctx.drawImage(img,imgX,imgY);
-
-            // increment the animationPctComplete for next frame
-            this.animPctComplete+=.01;  //100/fps;
+            this.ctx.drawImage(img,-imgX,0);
 
             // if the current animation is complete
             // reset the animation with the next image
-            if(this.animPctComplete>=0.55){
-                if (this.animPctComplete>=1.00) this.animPctComplete=1.00;
+            if(tiempo>=100){
                 if (this.keys[37]) {
                     this.imageIndex--;
+                    this.lastTime = (new Date).getTime();
                     if (this.imageIndex < 0) this.imageIndex = this.imgs.length-1;
-                    this.animPctComplete = 0.50;
                 }
-                if (this.keys[39]) {
+                if (this.keys[39] || ((new Date).getTime() - this.lastTime)>5000) {
                     this.imageIndex++;
+                    this.lastTime = (new Date).getTime();
                     if(this.imageIndex>=this.imgs.length) this.imageIndex=0;
-                    this.animPctComplete = 0.50;
                 }
             }
         }
