@@ -23,7 +23,6 @@ body {
 	background-color: #5B8F9A;
 }
 
-
 div {
 	display: block;
 }
@@ -183,7 +182,27 @@ li {
     padding-right: 10px;
 }
 
-#cares{
+
+div#localizacion {
+	padding-left: 35px;
+	text-align: left;
+}
+
+div#titulin {
+	font-weight: 100;
+}
+
+div#texto {
+	padding: 20px;
+	width: 984px;
+}
+
+
+caption {
+    color: blue;
+}
+
+#table{
     font-family: 'Exo 2', sans-serif;
     text-align: center;
     margin: 0 auto;
@@ -191,8 +210,20 @@ li {
     display: table;
 }
 
-#cares div {
-	width: 512px;
+#table div#row {
 	text-align: center;
+  	vertical-align: middle;
+    display:table-row;
+    margin: 0;
+    padding: 0;
+    width: 1024px;
+}
+
+#table div#cell-2 {
+	text-align: center;
+	vertical-align: middle;
     display:table-cell;
+    margin: 0;
+    padding: 0;
+	width: 512px;
 }
