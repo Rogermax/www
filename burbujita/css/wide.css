@@ -1,0 +1,86 @@
+#container {
+	background-color: #BBBBBB;
+    padding: 2% 2% 2% 2%;
+}
+#login-container {
+	background-color: #999999;
+    padding: 2% 2% 2% 2%;
+    color: #00FFFF;
+}
+#login {
+	background-color: #0000FF;
+    padding: 5% 5% 5% 5%;
+    margin-bottom: 2%;
+}
+#register {
+	background-color: #FF0000;
+    padding: 5% 5% 5% 5%;
+    color: #FFFF00;
+}
+form {
+	text-align : center;
+}
+input {
+	text-align : center;
+}
+#selected {
+	background-color: #FFFF00;
+}
+#ranking {
+	background-color: #EF3213;
+    margin-bottom: 2%;
+    padding: 2% 2% 2% 2%;
+}
+#first_row {
+	background-color: #10CDEC;
+}
+table {
+	border-collapse: collapse;
+  	width: 100%;
+}
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+#editable {
+	background-color: #313123;
+    margin-bottom: 2%;
+    display: inline-block;
+    width: 100%;
+}
+#play {
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 60%;
+	float: right;
+}
+#canvas_personalizado {
+	background-color: green;
+}
+#izq {
+	margin-top: 50px;
+	padding-left: 5%;
+	padding-right: 5%;
+	float: left;
+	color: #BEBEAE;
+	width: 20%;
+}
+#welcome {
+	font-size: 30px;
+	color: red;
+	background-color: #0000FF;
+    margin-bottom: 2%;
+    text-align: center;
+}
+#jugar {
+	background-color: #123145;
+	margin: auto;
+	width: 100%;
+    margin-bottom: 2%;
+}
+.myButton {
+	background-color: orange;
+	width: 50%;
+	padding: 1%;
+}

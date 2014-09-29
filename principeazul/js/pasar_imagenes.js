@@ -6,6 +6,7 @@ function canvas_libro(){
     this.imageIndex=0;
     this.animPctComplete=0;
     this.fps = 60;
+    this.mode = "pc";
 
     // image loader
 
@@ -151,35 +152,62 @@ function canvas_libro(){
             // get the current image
             // get the xy where the image will be drawn
         if (this.listo) {
-            var img=this.imgs[this.imageIndex];
-            var tiempo = ((new Date).getTime() - this.lastTime);
-            var imgX=0;
-            if (tiempo > 500 && tiempo < 4500)
-                imgX=Math.abs(this.canvas.width-img.width)*(tiempo-500)/4000;
-            else if (tiempo >= 4500)
-                imgX=Math.abs(this.canvas.width-img.width);
+            if (this.mode == "pc") {
+                var img=this.imgs[this.imageIndex];
+                var tiempo = ((new Date).getTime() - this.lastTime);
+                var imgX=0;
+                if (tiempo > 500 && tiempo < 4500)
+                    imgX=Math.abs(this.canvas.width-img.width)*(tiempo-500)/4000;
+                else if (tiempo >= 4500)
+                    imgX=Math.abs(this.canvas.width-img.width);
 
-            // set the current opacity
-            if (tiempo < 1500) this.ctx.globalAlpha=tiempo/1500;
-            else if (tiempo < 3500) this.ctx.globalAlpha = 1;
-            else this.ctx.globalAlpha=1-(tiempo-3500)/1500;
+                // set the current opacity
+                if (tiempo < 1500) this.ctx.globalAlpha=tiempo/1500;
+                else if (tiempo < 3500) this.ctx.globalAlpha = 1;
+                else this.ctx.globalAlpha=1-(tiempo-3500)/1500;
 
-            // draw the image
-            this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-            this.ctx.drawImage(img,-imgX,0);
+                // draw the image
+                this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+                this.ctx.drawImage(img,-imgX,0);
 
-            // if the current animation is complete
-            // reset the animation with the next image
-            if(tiempo>=100){
-                if (this.keys[37]) {
-                    this.imageIndex--;
-                    this.lastTime = (new Date).getTime();
-                    if (this.imageIndex < 0) this.imageIndex = this.imgs.length-1;
+                // if the current animation is complete
+                // reset the animation with the next image
+                if(tiempo>=100){
+                    if (this.keys[37]) {
+                        this.imageIndex--;
+                        this.lastTime = (new Date).getTime();
+                        if (this.imageIndex < 0) this.imageIndex = this.imgs.length-1;
+                    }
+                    if (this.keys[39] || ((new Date).getTime() - this.lastTime)>5000) {
+                        this.imageIndex++;
+                        this.lastTime = (new Date).getTime();
+                        if(this.imageIndex>=this.imgs.length) this.imageIndex=0;
+                    }
                 }
-                if (this.keys[39] || ((new Date).getTime() - this.lastTime)>5000) {
-                    this.imageIndex++;
-                    this.lastTime = (new Date).getTime();
-                    if(this.imageIndex>=this.imgs.length) this.imageIndex=0;
+            }
+            else {
+                var img=this.imgs[this.imageIndex];
+                var tiempo = ((new Date).getTime() - this.lastTime);
+                var imgX=0;
+                this.ctx.globalAlpha = 1;
+
+                // draw the image
+                this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+                this.ctx.drawImage(img,-imgX,0);
+
+                // if the current animation is complete
+                // reset the animation with the next image
+                if(tiempo>=100){
+                    if (this.keys[37]) {
+                        this.imageIndex--;
+                        this.lastTime = (new Date).getTime();
+                        if (this.imageIndex < 0) this.imageIndex = this.imgs.length-1;
+                    }
+                    if (this.keys[39] || ((new Date).getTime() - this.lastTime)>5000) {
+                        this.imageIndex++;
+                        this.lastTime = (new Date).getTime();
+                        if(this.imageIndex>=this.imgs.length) this.imageIndex=0;
+                    }
                 }
             }
         }

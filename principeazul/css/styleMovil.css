@@ -1,0 +1,198 @@
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 18px;
+	color: #4C7E8B;
+}
+
+p {
+	padding: 40px;
+	text-align: justify;
+    text-justify: inter-word;
+    font-weight: 500;
+}
+
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	text-align: center;
+	background-color: #5B8F9A; 
+}
+
+div {
+	display: block;
+}
+
+.clear { clear: both;}
+
+div#contenedor {
+	width: 1024px;
+	min-height: 100%;
+	position: relative;
+	margin: 0px auto;
+}
+
+#contenedor-canvas {
+	width:775px;
+	height:397px; 
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
+	border-radius: 40px;
+    -moz-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    display: none;
+}
+
+header {
+	margin: 0px;
+}
+
+div#titulo {
+	width: 1024px;
+	height: 158.1056px;
+    margin: 0 auto;
+}
+
+nav {
+	margin: 0px;
+}
+
+
+div#principal {
+	padding-top: 60px;
+	margin: 0px;
+	border-radius: 40px;
+    -moz-border-radius: 40px;
+    -khtml-border-radius: 40px;
+    -webkit-border-radius: 40px;
+	background-image: url('../img/background3.png');
+	background-size: 1024px 1436.8768px;
+}
+
+div#canvas-libro {
+	margin: 0px;
+	min-height: 400px;
+}
+
+div#ofrecemos {
+	margin: 0px;
+	padding-bottom:80px;
+}
+
+footer {
+	position:absolute;
+	bottom:0;
+	padding-top: 20px;
+	height:60px;
+	margin: 0px;
+	width: 100%;
+	color: orange;
+}
+
+div#footer {
+	width: 800px;
+	height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.imagesSource {
+	display: none;
+}
+
+.canvasHolder {
+    display: block;
+	top:-160px;
+	position: absolute;
+}
+
+.canvasHolder canvas {
+	/*border: 1px solid red;*/
+}
+
+#mouse {
+	background:green;
+	opacity:0.65;
+	position:absolute;
+	color: White;
+	text-align: center;
+	font-weight: bold;
+	z-index: 100;
+}
+
+
+#menu{
+    width:1024px;
+    height: 114.688px;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+}
+
+#menu ul{
+    font-family: 'Exo 2', sans-serif;
+    display:table-row;
+
+}
+#menu ul li{
+    font-family: 'Exo 2', sans-serif;
+    list-style:none;
+    display:table-cell;
+    font-size:18px;
+    vertical-align: middle;
+}
+#menu ul li a{
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none;
+    color:blue;
+}
+
+#menu ul li span {
+    vertical-align: middle;
+    margin-left: 0px;
+}
+#menu ul li img{
+    vertical-align: middle;
+}
+#menu ul li a:hover{
+    color: #ababab;
+}
+#menu ul li a.current{
+    text-decoration:underline;
+}
+
+#menu ul li:first-child {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu ul li:last-child {
+    text-align: right;
+    padding-right: 10px;
+}
+
+#cares{
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    width: 1024px;
+    display: table;
+}
+
+#cares div {
+	width: 512px;
+	text-align: center;
+    display:table-cell;
+}

@@ -8,7 +8,8 @@
 	<meta name="descripción" content="Página principal de Principe azul.">
 	<meta name="autor" content="Principe azul">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/styles.css?v=1.0">
+	<link rel="stylesheet" media="(max-width: 640px)" href="css/styleMovil.css?v=1.0">
+    <link rel="stylesheet" media="(min-width: 640px)" href="css/styleOrdenador.css?v=1.0">
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +33,7 @@
 		    <li><a href="quisom.html" id="quisom" title=""><img width=160.1536 height=96.256 src="img/quisom.png" 
 		    	onmouseover="this.src='img/quisom-hover.png'"
 				onmouseout="this.src='img/quisom.png'" /><span></span></a></li>
-		    <li><a href="#" title=""><img width=160.1536 height=96.256 src="img/contes.png" 
+		    <li><a href="elsnostrescontes.html" title=""><img width=160.1536 height=96.256 src="img/contes.png" 
 		    	onmouseover="this.src='img/contes-hover.png'"
 				onmouseout="this.src='img/contes.png'" /><span></span></a></li>
 		    <li><a href="#" title=""><img width=160.1536 height=96.256 src="img/funcionament.png" 
@@ -48,42 +49,74 @@
 		</nav>
 		<div id="principal">
 			<div id="contenedor-canvas" >
-				<canvas id="canvas-libro" width=775 height=397 ></canvas>
+				<canvas id="canvas-libro" width=775 height=397 >Your browser does not support canvas.</canvas>
 				<script>
 					a = new canvas_libro();
 					a.AsignaTecladoMouse();
 					a.loadAllImages();
-					(function() //asigna onEachFrame per a diferents exploradors.
-					{
-						var onEachFrame;
-						if (window.webkitRequestAnimationFrame)
-						{
-						  onEachFrame = function(cb)
-						  {
-						    var _cb = function() { cb(); requestAnimationFrame(_cb); }
-						    _cb();
-						  };
-						}
-						else if (window.mozRequestAnimationFrame)
-						{
-						  onEachFrame = function(cb)
-						  {
-						    var _cb = function() { cb(); mozRequestAnimationFrame(_cb); }
-						    _cb();
-						  };
-						}
-						else
-						{
-						  onEachFrame = function(cb)
-						  {
-						    setInterval(cb, 1000 / 60);
-						  }
-						}
+					(function() {
+					    var lastTime = 0;
+					    var vendors = ['ms', 'moz', 'webkit', 'o'];
+					    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+					        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+					        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+					                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
+					    }
+					 
+					    if (!window.requestAnimationFrame)
+					        window.requestAnimationFrame = function(callback, element) {
+					            var currTime = new Date().getTime();
+					            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+					            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+					              timeToCall);
+					            lastTime = currTime + timeToCall;
+					            return id;
+					        };
+					 
+					    if (!window.cancelAnimationFrame)
+					        window.cancelAnimationFrame = function(id) {
+					            clearTimeout(id);
+					        };
+					}());
 
-						window.onEachFrame = onEachFrame;
-					})();
+					var time;
+					function drawPC() {
+					    requestAnimationFrame(drawPC);
+					    var now = new Date().getTime(),
+					        dt = now - (time || now);
+					 
+					    time = now;
+					 
+					    // Drawing code goes here... for example updating an 'x' position:
+					    this.x += 10 * dt; // Increase 'x' by 10 units per millisecond
+					    a.run();
+					}
 
-					window.onEachFrame(a.run);
+					function drawMovil() {
+					    requestAnimationFrame(drawMovil);
+					    a.fps = 10;
+					    a.mode = "movil";
+					    a.run();
+					}
+
+					if (getComputedStyle !== "undefined") {
+						if (window.getComputedStyle(document.getElementById("contenedor-canvas")).display!="none") {
+							drawPC();
+						}
+						else {
+							document.getElementById("contenedor-canvas").style.display="block";
+							drawMovil();
+						}
+					}
+					else {
+						if (document.getElementById("contenedor-canvas").display!="none") {
+							drawPC();
+						}
+						else {
+							document.getElementById("contenedor-canvas").style.display="block";
+							drawMovil();
+						}
+					}
 				</script>
 			</div>
 			<div id="ofrecemos">
