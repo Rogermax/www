@@ -1,0 +1,17 @@
+#main-container {
+	background-image: url('../img/240.jpg');
+	width: 216px;
+	height: 216px
+}
+
+#idiomas div {
+	width: 33px
+}
+
+#idiomas div img {
+	height: 22px
+}
+
+nav {
+	display:none
+}

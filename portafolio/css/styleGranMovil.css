@@ -1,0 +1,19 @@
+#titulo, nav, footer{
+	width: 336px
+}
+
+#main-container {
+	background-image: url('../img/360.jpg');
+	width: 336px;
+	height: 336px
+}
+
+
+#idiomas div {
+	width: 33px
+}
+
+#idiomas div img {
+	height: 22px
+}
+

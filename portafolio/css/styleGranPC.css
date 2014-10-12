@@ -1,0 +1,21 @@
+#titulo, nav, footer{
+	width: 1520px
+}
+
+#main-container {
+	background-image: url('../img/1600.jpg');
+	width: 1520px;
+	height: 1520px
+}
+
+#idiomas {
+	padding-top: 10px;
+	padding-right: 10px;
+	position:relative;
+	float:right;
+	text-align: right
+}
+
+#idiomas img {
+	margin-right: 12px
+}
