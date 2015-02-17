@@ -4,8 +4,7 @@
 
 #main-container {
 	background-image: url('../img/360.jpg');
-	width: 336px;
-	height: 336px
+	width: 336px
 }
 
 
@@ -17,3 +16,13 @@
 	height: 22px
 }
 
+#titulo ul li#img-roger img{
+	margin-top: 4px;
+	width: 80px;
+	float: left
+}
+
+#table-cv #table-nom {
+	font-size: 30px;
+	font-weight: 700
+}

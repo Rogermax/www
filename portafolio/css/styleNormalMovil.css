@@ -4,8 +4,7 @@
 
 #main-container {
 	background-image: url('../img/320.jpg');
-	width: 296px;
-	height: 296px
+	width: 296px
 }
 
 #idiomas div {
@@ -16,6 +15,14 @@
 	height: 22px
 }
 
-nav {
-	display:none
+#titulo ul li#img-roger img{
+	margin-top: 4px;
+	width: 80px;
+	float: left
+}
+
+
+#table-cv #table-nom {
+	font-size: 30px;
+	font-weight: 700
 }

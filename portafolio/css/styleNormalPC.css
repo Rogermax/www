@@ -4,10 +4,20 @@
 
 #main-container {
 	background-image: url('../img/1024.jpg');
-	width: 960px;
-	height: 960px
+	width: 960px
 }
 
 #idiomas img {
 	margin-right: 12px
+}
+
+#titulo ul li#img-roger img{
+	margin-top: 4px;
+	width: 80px;
+	float: left
+}
+
+#table-cv #table-nom {
+	font-size:48px;
+	font-weight: 700
 }
