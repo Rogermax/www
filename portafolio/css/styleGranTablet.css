@@ -12,12 +12,16 @@
 }
 
 #titulo ul li#img-roger img{
-	margin-top: 4px;
-	width: 80px;
+	margin-top: 8px;
+	width: 70px;
 	float: left
 }
 
 #table-cv #table-nom {
 	font-size:36px;
 	font-weight: 700
+}
+
+nav ul li {
+	margin-right: 35px;
 }

@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <meta name="description" content="Personal Portafolio">
 <meta name="author" content="Roger De Moreta Salusi">
 <meta HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" media="screen and (max-width: 319px)" href="css/styleMiniMovil.css?v=1.0">
 <link rel="stylesheet" media="screen and (min-width: 320px) and (max-width: 359px)" href="css/styleNormalMovil.css?v=1.0">
 <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 479px)" href="css/styleGranMovil.css?v=1.0">
@@ -79,6 +79,12 @@ header('Content-Type: text/html; charset=UTF-8');
 	}
 	body.cat :lang(es), body.cat :lang(en) {
 		display: none
+	}
+
+	#table-cv #table-nom {
+		font-size: 18px;
+		border-spacing: 0px;
+		font-weight: 700
 	}
 
 	#titulo {
@@ -187,7 +193,6 @@ header('Content-Type: text/html; charset=UTF-8');
 		width: 32px;
 		margin-top: -7px
 	}
-
 </style>
 <title>Roger De Moreta | Mathematician and Computer Engineer</title>
 </head>

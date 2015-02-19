@@ -1,3 +1,7 @@
+
+
+
+
 #main-container {
 	background-image: url('../img/240.jpg');
 	width: 216px
@@ -12,13 +16,16 @@
 }
 
 #titulo ul li#img-roger img{
-	margin-top: 15px;
-	width: 58px;
+	margin-top: 8px;
+	width: 70px;
 	float: left
 }
 
 #table-cv #table-nom {
-	font-size: 18px;
+	font-size: 30px;
 	font-weight: 700
 }
 
+nav ul li {
+	margin-right: 10px;
+}

@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <meta name="description" content="Personal Portafolio">
 <meta name="author" content="Roger De Moreta Salusi">
 <meta HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" media="screen and (max-width: 319px)" href="css/styleMiniMovil.css?v=1.0">
 <link rel="stylesheet" media="screen and (min-width: 320px) and (max-width: 359px)" href="css/styleNormalMovil.css?v=1.0">
 <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 479px)" href="css/styleGranMovil.css?v=1.0">
@@ -94,7 +94,7 @@ header('Content-Type: text/html; charset=UTF-8');
 	}
 
 	#table-cv {
-		border-spacing: 20px;
+		text-align:center
 	}
 
 	#titulo {
@@ -164,7 +164,6 @@ header('Content-Type: text/html; charset=UTF-8');
    		overflow: hidden
 	}
 	nav ul li {
-		margin-right: 20px;
     	float: left
 	}
 	nav ul li#contacto-nav {
@@ -200,7 +199,6 @@ header('Content-Type: text/html; charset=UTF-8');
 		width: 32px;
 		margin-top: -7px
 	}
-
 </style>
 <title>Roger De Moreta | Mathematician and Computer Engineer</title>
 </head>
@@ -278,33 +276,260 @@ header('Content-Type: text/html; charset=UTF-8');
 				<col width="5%"><col width="5%">
 			</colgroup>
 			<tr>
-				<td colspan="4"><img style="max-width: 60%; max-height: 60%" src="img/carnet.jpg"/></td>
-				<td colspan="16" id="table-nom">Roger De Moreta Salusi</td>
+				<td colspan="8"><img style="max-width: 90%; max-height: 400px" src="img/carnet.jpg"/></td>
+				<td colspan="12" id="table-nom">Roger De Moreta Salusi</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%">Estudis</span></td>
 			</tr>
 			<tr>
-				<td colspan="2"><span style="font-size: 30px; font-weight: 700">Estudis</span></td>
-				<td colspan="18"></td>
+				<td colspan="2">   2011 - Present</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Finalitzant l'últim curs en grau d'informàtica</span>, Facultat d'informàtica de Barcelona, Universitat Politècnica de Catalunya. <span style="font-style: italic">Especialització en computació.</span></td>
 			</tr>
 			<tr>
-				<td colspan="2">2011-2014</td>
-				<td colspan="18"><span style="font-weight: 700">Finalitzant l'últim curs en grau d'informática</span>, Facultat d'informàtica de Barcelona, Universitat Politècnica de Catalunya.</td>
+				<td colspan="2">2007 - 2013</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Llicenciat en matemàtiques</span>, Facultat de Matemàtiques i Estadística, Universitat Politècnica de Catalunya.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150% " >Experiència</span></td>
 			</tr>
 			<tr>
-				<td colspan="2">2007-2013</td>
-				<td colspan="18"><span style="font-weight: 700">Llicenciat en matemàtiques</span>, Facultat de Matemàtiques i Estadística, Universitat Politècnica de Catalunya.</td>
+				<td colspan="2"><span>2014 - Present</span></td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Programador a SCI Serviclients.</span> Realitzant un servei en el projecte de Fujitsu per "La Caixa".</td>
+			</tr>
+			<tr>
+				<td colspan="2">2009 - 2014</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Professor particular.</span> Més de 10 alumnes des de l'ESO fins a la universitat.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Coneixements informàtics</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Avançat</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">C/C++, Java, JavaScript, ActionScript, Microsoft Windows, OppenOffice, HTML.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Intermig</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">ANDROID, PHP, Git, SVN, Linux, Flash, MATLAB.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Bàsic</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">PostgresQL, SQLite, Haskell, Fortran.</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Idiomes</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Català</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Llengua nativa.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Castella</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Llengua nativa.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Anglès</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Intermedi (First Certificate).</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Aficions</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Aprendre nous llenguatges de programació.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Fer aplicacions Android i Web.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Fer esport.</span></td>
 			</tr>
 		</table>
     </div>
-    <div id="main-container" lang="es">  
-    	<p><img style="min-width: 100%; min-height: 100%" src="img/cv-es.png" /></p>
+    <div id="main-container" lang="es">  		
+    	<table id="table-cv" align="center">
+			<colgroup>
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+			</colgroup>
+			<tr>
+				<td colspan="8"><img style="max-width: 90%; max-height: 400px" src="img/carnet.jpg"/></td>
+				<td colspan="12" id="table-nom">Roger De Moreta Salusi</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%">Estudios</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">   2011 - Presente</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Finalizando el último curso en el grado de informática</span>, Facultad de informática de Barcelona, Universitat Politècnica de Catalunya. <span style="font-style: italic">Especialización en computación.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">2007 - 2013</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Licenciado en matemáticas</span>, Facultad de Matemáticas y Estadística, Universitat Politècnica de Catalunya.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150% " >Experiencia</span></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span>2014 - Presente</span></td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Programador en SCI Serviclients.</span> Realizando un servicio en el proyecto de Fujitsu para "La Caixa".</td>
+			</tr>
+			<tr>
+				<td colspan="2">2009 - 2014</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Profesor particular.</span> Más de 10 alumnos des de la ESO hasta la universidad.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Conocimientos informáticos</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Avanzado</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">C/C++, Java, JavaScript, ActionScript, Microsoft Windows, OppenOffice, HTML.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Intermedio</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">ANDROID, PHP, Git, SVN, Linux, Flash, MATLAB.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Básico</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">PostgresQL, SQLite, Haskell, Fortran.</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Idiomas</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Castellano</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Lengua nativa.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Catalán</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Lengua nativa.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Inglés</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Intermedio (First Certificate).</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Aficiones</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Aprender nuevos lenguajes de programación.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Hacer aplicaciones Android y Web.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Hacer deporte.</span></td>
+			</tr>
+		</table>
+    </div>
+    <div id="main-container" lang="en">   		
+    	<table id="table-cv" align="center">
+			<colgroup>
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+				<col width="5%"><col width="5%">
+			</colgroup>
+			<tr>
+				<td colspan="8"><img style="max-width: 90%; max-height: 400px" src="img/carnet.jpg"/></td>
+				<td colspan="12" id="table-nom">Roger De Moreta Salusi</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%">Education</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">   2011 - Present</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Stuydind a University Degree in Computer Science</span> at the Universitat Politècnica de Catalunya. <span style="font-style: italic">Expected completion 2015.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">2007 - 2013</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">University Degree in Mathematics</span> at the Universitat Politècnica de Catalunya.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150% " >Experience</span></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span>2014 - Present</span></td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Programmer in SCI Serviclients.</span> Working in a Fujitsu's service for "La Caixa".</td>
+			</tr>
+			<tr>
+				<td colspan="2">2009 - 2014</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Revision tutor.</span> More than 10 students between GCSE to University.</td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Computer Skills</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Expert</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">C/C++, Java, JavaScript, ActionScript, Microsoft Windows, OppenOffice, HTML.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Intermediate</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">ANDROID, PHP, Git, SVN, Linux, Flash, MATLAB.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Beginner</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">PostgresQL, SQLite, Haskell, Fortran.</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Language Skills</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Spanish</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Fluent.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">Catalan</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Fluent.</span></td>
+			</tr>
+			<tr>
+				<td colspan="2">English</td>
+				<td colspan="18" style="text-align: left"><span style="font-weight: 700">Intermediary (First Certificate).</span></td>
+			</tr>
+			<tr style="text-align: left" height="60px">
+				<td colspan="20"><span style="font-weight: 900; font-size: 150%" >Interests</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Learning new computer languages.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Building Android and Web applications.</span></td>
+			</tr>
+			<tr>
+				<td colspan="1"></td>
+				<td colspan="19" style="text-align: left"><span style="font-weight: 700">- Jogging.</span></td>
+			</tr>
+		</table>
+    </div>
+    <footer lang="cat">
+    	<p><a href="pdf/RogerDeMoreta-cat.pdf">Baixar versió en PDF</a></p>
+    </footer>
+    <footer lang="es">
     	<p><a href="pdf/RogerDeMoreta-es.pdf">Bajar versión en PDF</a></p>
-    </div>
-    <div id="main-container" lang="en">  
-    	<p><img style="min-width: 100%; min-height: 100%" src="img/cv-es.png" /></p>
-    	<p><a href="pdf/RogerDeMoreta-es.pdf">Download PDF version</a></p>
-    </div>
-    <footer lang="cat">Peu de pàgina</footer>
-    <footer lang="es">Pie de página</footer>
-    <footer lang="en">Footer</footer>
+    </footer>
+    <footer lang="en">
+    	<p><a href="pdf/RogerDeMoreta-en.pdf">Download PDF version</a></p>
+    </footer>
 </body>
 </html>
